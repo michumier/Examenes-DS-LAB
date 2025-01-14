@@ -1,0 +1,10 @@
+package discounts;
+
+public class FreeDiscount implements Discount {
+
+	@Override
+	public double applyDiscount(double price) {
+		return 0;
+	}
+
+}

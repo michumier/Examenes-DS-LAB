@@ -1,0 +1,11 @@
+package payments;
+
+public class PaypalPayment implements Payment{
+
+	@Override
+	public boolean pay(double amount) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

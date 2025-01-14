@@ -1,0 +1,40 @@
+package payments;
+
+import machine.hardware.BillAcceptor;
+import machine.hardware.CardReader;
+import machine.hardware.Display;
+import machine.hardware.Keyboard;
+import machine.hardware.Printer;
+import paypal.PayPalAPI;
+
+public class PaypalPayment implements Payment{
+	
+	private Display display = new Display();
+	private Keyboard keyboard = new Keyboard();
+	private Printer printer = new Printer();
+	private CardReader cardReader = new CardReader();
+	private BillAcceptor billAcceptor = new BillAcceptor();
+	
+	PayPalAPI api = new PayPalAPI();
+
+	@Override
+	public boolean pay(double amount) {
+				
+		display.show("Iniciando sesión en PayPal...");
+		display.show("Por favor, introduzca su nombre de usuario: ");
+		String user = keyboard.readString();
+		display.show("Por favor, introduzca su contraseña: ");
+		String password = keyboard.readString();
+		// Llamar a la API para loggear
+		String token = api.logIn(user, password);
+		if(!api.isLogged(token)) {
+			display.show("Nombre de usuario o contraseña incorrectas");
+			return false;
+		}
+		// Checkout de la API	
+		api.checkout(token, amount);
+		
+		return true;
+	}
+
+}

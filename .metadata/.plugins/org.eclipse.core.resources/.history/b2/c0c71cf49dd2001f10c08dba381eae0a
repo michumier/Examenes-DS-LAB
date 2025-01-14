@@ -1,0 +1,12 @@
+package discounts;
+
+public class PercentageDiscount implements Discount {
+
+	private static final double DESCUENTO = 20;
+
+	@Override
+	public double applyDiscount(double price) {
+		return price * ((100 - DESCUENTO) / 100);
+	}
+
+}

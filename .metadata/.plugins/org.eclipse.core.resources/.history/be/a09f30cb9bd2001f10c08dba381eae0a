@@ -1,0 +1,11 @@
+package discounts;
+
+public class PriceDiscount implements Discount{
+
+	@Override
+	public double applyDiscount(double price) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

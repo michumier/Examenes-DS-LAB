@@ -1,0 +1,20 @@
+package paypal;
+
+
+// PATRÓN ADAPTER: ADAPTER 
+public class PayPalService {
+	
+    private PayPalAPI api = new PayPalAPI();
+
+    public String logIn(String username, String password) {
+        return api.logIn(username, password);
+    }
+
+    public boolean isLogged(String token) {
+        return api.isLogged(token);
+    }
+
+    public boolean checkout(String token, double amount) {
+        return api.checkout(token, amount);
+    }
+}

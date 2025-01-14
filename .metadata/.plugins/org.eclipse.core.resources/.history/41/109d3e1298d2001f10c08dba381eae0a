@@ -1,0 +1,30 @@
+package payments;
+
+import machine.hardware.BillAcceptor;
+import machine.hardware.CardReader;
+import machine.hardware.Display;
+import machine.hardware.Keyboard;
+import machine.hardware.Printer;
+
+public class CardPayment implements Payment{
+	
+	private Display display = new Display();
+	private Keyboard keyboard = new Keyboard();
+	private Printer printer = new Printer();
+	private CardReader cardReader = new CardReader();
+	private BillAcceptor billAcceptor = new BillAcceptor();
+
+	@Override
+	public boolean pay(double amount) {
+		String cardNumber = cardReader.readCardNumber();
+		boolean isValid = bankGateway.pay(cardNumber, amount);
+		if (!isValid) {
+			display.show("Tarjeta rechazada\n");
+			return false;
+		}
+		// pago correcto
+		display.show("Tarjeta aceptada: pago realizado con éxito\n");
+		return true;
+	}
+
+}

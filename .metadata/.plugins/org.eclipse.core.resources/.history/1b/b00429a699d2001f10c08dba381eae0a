@@ -1,0 +1,31 @@
+package payments;
+
+import machine.hardware.BillAcceptor;
+import machine.hardware.CardReader;
+import machine.hardware.Display;
+import machine.hardware.Keyboard;
+import machine.hardware.Printer;
+
+public class PaypalPayment implements Payment{
+	
+	private Display display = new Display();
+	private Keyboard keyboard = new Keyboard();
+	private Printer printer = new Printer();
+	private CardReader cardReader = new CardReader();
+	private BillAcceptor billAcceptor = new BillAcceptor();
+
+	@Override
+	public boolean pay(double amount) {
+		boolean resultado = false;
+		
+		// Llamar a la API para loggear
+		
+		// Hacer el pago
+		
+		// Checkout de la API	
+		
+		
+		return resultado;
+	}
+
+}

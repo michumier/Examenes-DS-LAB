@@ -1,0 +1,8 @@
+package discounts;
+
+
+// PATRÓN DECORATOR: COMPONENTE
+public interface Discount {
+
+	double applyDiscount(double price, int numberOfTickets);
+}
